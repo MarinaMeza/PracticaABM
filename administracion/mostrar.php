@@ -1,5 +1,5 @@
 <?php
     require_once "../clases/personas.php";
 
-    echo Persona::MostrarArchivo();
+    echo Persona::MostrarPersonasVector();
 ?>

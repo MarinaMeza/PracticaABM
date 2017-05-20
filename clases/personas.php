@@ -32,5 +32,36 @@
             fclose($arch);
             return $datos;
         }
+
+        public static function TraerPersonasDeTxt(){
+            $listaPersonas = array();
+
+            $arch = fopen("../archivos/personas.txt","r");
+            while(!feof($arch)){
+                $linea = fgets($arch);
+                $auxPersona = explode(" - ",$linea);
+                $auxPersona[0] = trim($auxPersona[0]);
+                
+                if($auxPersona[0]!=""){
+                    $listaPersonas[] = new Persona(trim($auxPersona[0]),trim($auxPersona[1]),trim($auxPersona[2]));
+                }
+            }
+            fclose($arch);
+            return $listaPersonas;
+        }
+
+        public static function MostrarPersonasVector(){
+            $listaPersonas = Persona::TraerPersonasDeTxt();
+
+            $datos = "<ul>";
+            foreach ($listaPersonas as $key) {
+                
+                $datos .= "<li>";
+                $datos .= $key->ToString();
+                $datos .= "</li>";
+            }
+            $datos .= "</ul>";
+            return $datos;
+        }
     }
 ?>
