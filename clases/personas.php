@@ -58,8 +58,8 @@
                 
                 $datos .= "<li>";
                 $datos .= $key->ToString();
-                //$datos .= "<button onclick='borrador(".$key->ToString().")' class='btn btn-danger'>Borrar</button>";
-                $datos .= "<a onclick='borrar()' class='btn btn-danger'>Borraar</a>";
+                $datos .= "<button onclick="."modificar('$key->_nombre')"." class='btn btn-primary'>Modificar</button> ";
+                $datos .= "<button onclick="."borrar('$key->_nombre')"." class='btn btn-danger'>Borrar</button>";
                 $datos .= "</li>";
             }
             $datos .= "</ul>";
@@ -84,6 +84,20 @@
                 if($listaPersonas[$i]->_nombre==$pPersona)
                 {
                     unset($listaPersonas[$i]);
+                }
+            }
+            Persona::GuardarArrayPersona($listaPersonas);
+        }
+
+        public function ModificarPorNombre($pPersona){
+            $listaPersonas = Persona::TraerPersonasDeTxt();
+
+            for ($i=0; $i < count($listaPersonas); $i++) { 
+                if($listaPersonas[$i]->_nombre==$pPersona)
+                {
+                    $listaPersonas[$i]->_nombre = $this->_nombre;
+                    $listaPersonas[$i]->_apellido = $this->_apellido;
+                    $listaPersonas[$i]->_numero = $this->_numero;
                 }
             }
             Persona::GuardarArrayPersona($listaPersonas);
