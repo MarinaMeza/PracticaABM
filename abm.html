@@ -11,6 +11,7 @@
      integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
      crossorigin="anonymous"></script>
     <script src="administracion/menu.js"></script>
+    <script src="administracion/funciones.js"></script>
     <title>Documento Marina</title>
 </head>
 
@@ -24,6 +25,7 @@
                 Apellido:<input type="text" id="txtApellido" value=""><br>
                 Numero:<input type="text" id="txtNumero" value=""><br> 
                 <input type="button" class="btn btn-success" value="Alta" id="btnAlta">
+                <input type="button" class="btn btn-info" value="BorrarPersona" id="btnBorrarPersona">
                 <input type="button" class="btn btn-danger" value="BorrarTodo" id="btnBorrarTodo">
             </div>
         </div>
@@ -35,6 +37,8 @@
         </div>
         
         <button id="get_btn" class="btn btn-info">Cargar Datos</button>
+        <button id="btnRecuperar" class="btn btn-warning">Recuperar Datos</button>
+        <button class="btn btn-info" onclick="prueba('hola')">Prueba</button>
 
     </div>
 
