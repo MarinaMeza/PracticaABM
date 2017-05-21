@@ -10,4 +10,7 @@ function alta(){
         type: "POST",
         data: datosEnviar
     })
+    .done(function(datos){
+            $("#salida").html(datos);
+        });
 }

@@ -1,25 +1,27 @@
 <?php
-    public $numero;
-    public $descripcion;
-    public $pais;
-    public $foto;
+    class Container{
+        public $numero;
+        public $descripcion;
+        public $pais;
+        public $foto;
 
-    public function __construct($numero, $descripcion, $pais, $foto){
-        $this->numero = $numero;
-        $this->descripcion = $descripcion;
-        $this->pais = $pais;
-        $this->foto = $foto;  
-    }
+        public function __construct($numero, $descripcion, $pais, $foto){
+            $this->numero = $numero;
+            $this->descripcion = $descripcion;
+            $this->pais = $pais;
+            $this->foto = $foto;  
+        }
 
-    public function ToString(){
-        return $this->numero." - ".$this->descripcion." - ".$this->pais." - ".$this->foto;
-    }
+        public function ToString(){
+            return $this->numero." - ".$this->descripcion." - ".$this->pais." - ".$this->foto;
+        }
 
-    public function InsertarContainer(){
-        $objetoAccesoADatos = AccesoDatos::dameUnObjetoAcceso();
+        public function InsertarContainer(){
+            $objetoAccesoDatos = AccesoDatos::dameUnObjetoAcceso();
 
-        $consulta =$objetoAccesoDato->RetornarConsulta("INSERT into container (numero,descripcion,pais,foto)values('$this->numero','$this->descripcion','$this->pais','$this->foto')");
+            $consulta = $objetoAccesoDatos->RetornarConsulta("INSERT into container (numero,descripcion,pais,foto)values('$this->numero','$this->descripcion','$this->pais','$this->foto')");
 
-        $consulta->execute();
+            $consulta->execute();
+        }
     }
 ?>
