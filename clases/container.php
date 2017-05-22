@@ -50,8 +50,7 @@
             return $datos;
         }
 
-        public function BorrarContainer()
-        {
+        public function BorrarContainer(){
             $objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
             $consulta =$objetoAccesoDato->RetornarConsulta("
             delete 
@@ -61,5 +60,18 @@
             $consulta->execute();
             return $consulta->rowCount();
         }
+
+        public function ModificarContainer(){
+            $objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso();
+            
+            $consulta =$objetoAccesoDato->RetornarConsulta("
+                update container 
+                set descripcion='$this->descripcion',
+                pais='$this->pais',
+                foto='$this->foto'
+                WHERE numero='$this->numero'");
+            return $consulta->execute();            
+        }
+
     }
 ?>

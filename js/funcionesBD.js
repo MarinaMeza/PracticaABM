@@ -34,3 +34,19 @@ function borrar(p){
         }
     })
 }
+
+function modificar(pNumero){
+    $.ajax({
+        url: "php/modificar.php",
+        type: "POST",
+        data: {
+            pNumero: pNumero,
+            descripcion: $("#txtDescripcion").val(),
+            pais: $("#txtPais").val(),
+            foto: $("#txtFoto").val()
+        }
+    })
+    .done(function(datos){
+            $("#salida").html(datos);
+    });
+}
