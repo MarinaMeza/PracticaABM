@@ -6,7 +6,7 @@ function alta(){
         foto: "https://static.pexels.com/photos/104827/cat-pet-animal-domestic-104827.jpeg"//$("#txtFoto").val()
     }
     $.ajax({
-        url: "php/alta.php",
+        url: "php/ClienteCarga.php",
         type: "POST",
         data: datosEnviar
     })
