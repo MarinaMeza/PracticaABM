@@ -12,5 +12,25 @@ function alta(){
     })
     .done(function(datos){
             $("#salida").html(datos);
-        });
+    });
+}
+
+function mostrar(){
+    $.ajax({
+        url: "php/mostrar.php",
+        type: "POST"
+    })
+    .done(function(datos){
+            $("#salida").html(datos);
+    });
+}
+
+function borrar(p){
+    $.ajax({
+        url: "php/baja.php",
+        type: "POST",
+        data: {
+            numero: p
+        }
+    })
 }
