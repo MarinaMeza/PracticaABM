@@ -1,13 +1,15 @@
 <?php 
 session_start();
+require_once "js/funciones.js";
+
 $correo=$_POST['correo'];
 $clave=$_POST['clave'];
 $recordar=$_POST['recordarme'];
 
 $retorno;
 
-if($correo=="" && $clave=="")
-{			
+//if($correo=="" && $clave=="")//hacer
+//{			
 	if($recordar=="true")
 	{
 		setcookie("registro",$correo,  time()+36000 , '/');
@@ -17,14 +19,15 @@ if($correo=="" && $clave=="")
 		setcookie("registro",$correo,  time()-36000 , '/');
 		
 	}
+	
 	$_SESSION['registrado']=$correo;
 	$retorno=" ingreso";
 
 	
-}else
+/*}else
 {
 	$retorno= "No esta";
-}
+}*/
 
 echo $retorno;
 

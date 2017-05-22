@@ -27,3 +27,16 @@ function validar(){
         }
     })
 }
+
+
+function mostrar(){
+        $.ajax({
+            url: "administracion/mostrar.php",
+            type: "POST",
+            dataType: "text"
+        })
+        .done(function(datos){
+            $("#salida").html(datos);
+        });
+    
+}
